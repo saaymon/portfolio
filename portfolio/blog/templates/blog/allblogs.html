@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Welcome !</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+                <a class="navbar-brand" href="#">Szymon</a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">O mnie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projekty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <div class="container">
+        <h1 class="text-center pt-3">Welcome on my Blog!</h1>
+        <br />
+        <br />
+            <h2>Latest Posts</h2>
+            <hr />
+            {% for blog in blogs.all %}
+            <a href="{%url 'detail' blog.id%}"><h3>{{ blog.title }}</h3></a>
+            {{ blog.pub_date_pretty }}
+            <br />
+            <img class="image-fluid" src="{{ blog.image.url }}" height="200" width="200" />
+            <br />
+            <p>{{ blog.summary }} </p>
+            {% endfor %}
+
+
+
+        </div>
+    </main>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+    {% for job in jobs.all %}
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{job.image.url}}">
+            <div class="card-body">
+                <p class="card-text">{{job.summary}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+    </div>
+    </div>
+
+    <footer class="text-muted">
+        <div class="container text-center">
+            <p>© Szymon {%  now "Y" %}</p>
+        </div>
+    </footer>
+</body>
+</html>
