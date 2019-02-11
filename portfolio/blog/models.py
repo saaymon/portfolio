@@ -1,5 +1,5 @@
 from django.db import models
-
+#new branch test
 # Create your models here.
 
 class Blog(models.Model):
