@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
+{% block title %}<p>{{ blog.title }}</p>{% endblock %}
+
+
 {% block content %}
 
-     <p>{{ blog.title }}</p>
-
+     <h5>{{ blog.pub_date_pretty }}</h5>
+     <h2>{{ blog.title }}</h2>
+     <h5>Kategorie: {{ blog.catgory_name }}</h5>
+     <h4>{{ blog.body|linebreaksbr }}</h4>
+     <img class="card-img-top" src="{{blog.image.url}}" />
 {% endblock %}
+
+

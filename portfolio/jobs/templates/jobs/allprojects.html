@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}<p>Szymon Madej - projekty</p>{% endblock %}
+
+{% block content %}
+    <h1>Moje projekty:</h1>
+
+
+         <div class="album py-5 bg-dark">
+        <div class="container">
+            <div class="row">
+
+    {% for job in jobs.all %}
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{job.image.url}}" height="200"/>
+            <div class="card-body">
+                <a href="{%url 'jobdetail' job.id%}"><h4>{{ job.title }}</h4></a>
+                <p class="card-text">{{job.summary}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
+

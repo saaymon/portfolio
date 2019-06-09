@@ -1,8 +1,49 @@
 body {
     padding-top: 65px;
+    background-image: url("https://i0.wp.com/wrbbradio.org/wp-content/uploads/2016/10/grey-background-for-site11.jpg");
+    background-color: #cccccc;
   }
 
+ /* unvisited link */
+a:link {
+  color: grey;
+}
 
+/* visited link */
+a:visited {
+  color: grey;
+}
+
+/* mouse over link */
+a:hover {
+  color: orange;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+
+
+
+
+
+.jumbotron {
+
+  padding: 2rem 1rem;
+
+  margin-bottom: 2rem;
+
+  border-radius: 0.3rem;
+
+
+
+  background: #242134;
+
+
+
+  background: linear-gradient(to bottom, #343A40, #9E9AB4);
+}
 
 
 nav ul {

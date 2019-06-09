@@ -7,10 +7,10 @@
      <p>{{ blog.title }}</p>
     <main role="main">
         <div class="container">
-        <h1 class="text-center pt-3">Welcome on my Blog!</h1>
+        <h1 class="text-center pt-3">Witam na moim blogu, mam nadzieję, że znajdziesz tu coś interesującego.</h1>
         <br />
         <br />
-            <h2>Latest Posts</h2>
+            <h2>Ostatnie posty:</h2>
             <hr />
             {% for blog in blogs.all %}
             <a href="{%url 'detail' blog.id%}"><h3>{{ blog.title }}</h3></a>

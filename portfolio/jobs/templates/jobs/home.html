@@ -3,16 +3,17 @@
 {% block title %}Home{% endblock %}
 {% block content %}
     <div class="jumbotron">
-          <h1 class="display-4">Witaj na mojej stronie!</h1>
+        <h1 class="display-4"><strong>Witaj na mojej stronie!</strong></h1>
           <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
           <hr class="my-4">
           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
           <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Projekty</a>
-          </p>
+            <a class="btn btn-dark btn-lg" href="{% url 'alljobs' %}" role="button">Projekty</a>
+            <a class="btn btn-dark btn-lg" href="{% url 'allblogs' %}" role="button">Blog</a>
+
     </div>
-<div><p>My projects</p></div>
-    <div class="album py-5 bg-light">
+<div><h3>Poniżej znajdziesz kilka moich przykładowych projektów. Więcej znajdziesz na <a href="{%url 'alljobs' %}">stronie z projektami.</a> </h3></div>
+    <div class="album py-5 bg-dark">
         <div class="container">
             <div class="row">
 
@@ -21,14 +22,15 @@
         <div class="card mb-4 box-shadow">
             <img class="card-img-top" src="{{job.image.url}}" height="200"/>
             <div class="card-body">
+                <a href="{%url 'jobdetail' job.id%}"><h4>{{ job.title }}</h4></a>
                 <p class="card-text">{{job.summary}}</p>
             </div>
         </div>
     </div>
     {% endfor %}
-            </div></div>
+            </div></div></div>
 
-    <p>Ostatnie wpisy na blogu</p>
+    <div><h3>Ostatnio na blogu: </h3></div>
 
     {% for blog in blogs %}
             <a href="{%url 'detail' blog.id%}"><h3>{{ blog.title }}</h3></a>
@@ -38,5 +40,5 @@
             <br />
             <p>{{ blog.summary }} </p>
                 {% endfor %}
-
+     <a href="{%url 'allblogs' %}">Wiecej...</a>
 {% endblock %}

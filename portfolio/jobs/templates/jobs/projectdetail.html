@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}<p>{{ job.title }}</p>{% endblock %}
+
+
+{% block content %}
+
+     <h2>{{ job.title }}</h2>
+     <h5>Technologie: {{ job.technology_name }}</h5>
+     <h4>{{ job.summary }}</h4>
+     <img class="card-img-top" src="{{job.image.url}}" />
+{% endblock %}
+

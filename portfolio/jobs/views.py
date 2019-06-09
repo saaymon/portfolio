@@ -1,6 +1,5 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from .models import Job
 from blog.models import Blog
 # Create your views here.
@@ -17,13 +16,18 @@ class Allview(TemplateView):
         context['blogs'] = Blog.objects.all()
         return context
 
-
 def about(request):
     jobs = Job.objects
     return render(request, 'jobs/aboutme.html', {'jobs':jobs})
 
+# Create your views here.
+def alljobs(request):
+    jobs = Job.objects
+    return render(request, 'jobs/allprojects.html', {'jobs':jobs})
 
-
+def jobdetail(request, job_id):
+    detailjob = get_object_or_404(Job, pk=job_id)
+    return render(request, 'jobs/projectdetail.html', {'job':detailjob})
 
 
 
